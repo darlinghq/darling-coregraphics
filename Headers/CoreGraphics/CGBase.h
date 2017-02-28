@@ -34,6 +34,15 @@
 
 // Note: GNUstep Foundation defines CGFloat
 
+#ifndef CGFLOAT_DEFINED
+#if __LP64__
+typedef double CGFloat;
+#else
+typedef float CGFloat;
+#endif
+#define CGFLOAT_DEFINED
+#endif
+
 #import <Foundation/Foundation.h>
 #import <CoreFoundation/CoreFoundation.h>
 

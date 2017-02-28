@@ -26,6 +26,7 @@
 #define OPAL_CGGeometry_h
 
 #include <CoreGraphics/CGBase.h>
+#include <Foundation/NSGeometry.h>
 
 /* Data Types */
 
@@ -338,6 +339,7 @@ OP_GEOM_SCOPE CGRect CGRectMake(CGFloat x, CGFloat y, CGFloat width, CGFloat hei
   return rect;
 }
 
+#if 0 // This belongs only in Foundation!
 OP_GEOM_SCOPE CGRect NSRectToCGRect(NSRect rect)
 {
   CGRect cgrect;
@@ -395,6 +397,7 @@ OP_GEOM_SCOPE CGSize NSSizeToCGSize(NSSize size)
   cgsize.height = size.height;
   return cgsize;
 }
+#endif
 
 OP_GEOM_SCOPE CGRect CGRectStandardize(CGRect rect)
 {
