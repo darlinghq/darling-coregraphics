@@ -1,4 +1,4 @@
-project(coregraphics)
+project(CoreGraphics)
 
 cmake_minimum_required(VERSION 2.4.0)
 
@@ -164,7 +164,7 @@ set(GNUSTEP_GUI_MINOR_VERSION 25)
 set(GNUSTEP_GUI_SUBMINOR_VERSION 0)
 set(GCC_VERSION "${CMAKE_CXX_COMPILER_VERSION}")
 
-set(coregraphics_SRCS
+set(CoreGraphics_SRCS
     Source/OpalGraphics/CGAffineTransform.m
     Source/OpalGraphics/CGBitmapContext.m
     Source/OpalGraphics/CGColor.m
@@ -238,6 +238,8 @@ set(coregraphics_SRCS
     Source/OpalText/FreeType/OPFreeTypeFont.m
 )
 
-set_source_files_properties(${coregraphics_SRCS} LANGUAGE C)
+set_source_files_properties(${CoreGraphics_SRCS} LANGUAGE C)
 
-add_library(coregraphics OBJECT ${coregraphics_SRCS})
+add_library(CoreGraphics SHARED ${CoreGraphics_SRCS})
+target_link_libraries(CoreGraphics system lcms png gif tiff jpeg X11 Xext Xrender fontconfig cairo)
+install(TARGETS CoreGraphics DESTINATION ${CMAKE_INSTALL_LIBDIR}/darling)
